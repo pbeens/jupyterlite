@@ -32,8 +32,8 @@ jobs:
         run: |
           jupyter lite build --output-dir dist
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload built site
+        uses: actions/upload-pages-artifact@v2  # ✅ Modern replacement
         with:
           path: dist
 
@@ -43,6 +43,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
